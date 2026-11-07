@@ -1,0 +1,21 @@
+{
+	"hosting": {
+		"target": "farvelskaerm",
+		"predeploy": [
+			"node $HOME/Documents/Git/cursor-global-setup/scripts/require-published-deploy.mjs --repo Farvelskaerm --live https://farvelskaerm.web.app/deployed.json --out build/deployed.json"
+		],
+		"public": "build",
+		"ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+		"rewrites": [{ "source": "**", "destination": "/index.html" }],
+		"headers": [
+			{
+				"source": "/deployed.json",
+				"headers": [{ "key": "Cache-Control", "value": "no-cache" }]
+			},
+			{
+				"source": "**",
+				"headers": [{ "key": "Cross-Origin-Opener-Policy", "value": "same-origin-allow-popups" }]
+			}
+		]
+	}
+}
