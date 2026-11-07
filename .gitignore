@@ -27,3 +27,4 @@ vite.config.ts.timestamp-*
 firestore.rules.live
 firebase-debug.log
 *-debug.log
+firestore.rules
